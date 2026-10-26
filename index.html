@@ -50,35 +50,6 @@
             height: 100%;
             object-fit: contain;
         }
-        /* Dyskretny przycisk w prawym dolnym rogu */
-        .control-btn {
-            position: absolute;
-            bottom: 15px;
-            right: 15px;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background-color: rgba(128, 128, 128, 0.15);
-            border: 1px solid rgba(128, 128, 128, 0.2);
-            cursor: pointer;
-            z-index: 999;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: opacity 0.3s ease;
-            opacity: 1;
-        }
-        .control-btn::after {
-            content: '';
-            display: block;
-            width: 8px;
-            height: 8px;
-            background-color: rgba(128, 128, 128, 0.3);
-            border-radius: 1px;
-        }
-        .control-btn.hidden {
-            opacity: 0;
-        }
     </style>
 </head>
 <body>
@@ -94,12 +65,8 @@
         Twoja przeglądarka nie obsługuje odtwarzacza wideo.
     </video>
 
-    <!-- Przycisk sterujący ukryty w rogu -->
-    <div class="control-btn" id="playPauseBtn" onclick="togglePlayPause()"></div>
-
     <script>
         let video = document.getElementById('myVideo');
-        let btn = document.getElementById('playPauseBtn');
         let splash = document.getElementById('splash');
 
         // Odliczanie 2 sekund przed ukryciem screenu i startem filmu
@@ -115,16 +82,6 @@
                 });
             }, 500); // Czas trwania animacji zanikania
         }, 2000); // Czas wyświetlania pierwszego screenu (2 sekundy)
-
-        function togglePlayPause() {
-            if (video.paused) {
-                video.play();
-                btn.classList.remove('hidden');
-            } else {
-                video.pause();
-                btn.classList.add('hidden');
-            }
-        }
     </script>
 
 </body>
